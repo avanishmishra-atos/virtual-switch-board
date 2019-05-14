@@ -31,12 +31,15 @@ export class SwitchService {
 
   /** POST: add a new hero to the server */
   changeSwitchStatus<T>(triggerName: string, value: string): Observable<any> {
+
     const url = this.iftttHostUrl + triggerName + '/with/key/' + this.iftttKey + '/';
     const httpParams: any = { 'value1': value, 'value2': '', 'value3': '' };
 
     let headers = new HttpHeaders();
     headers = headers.append('Access-Control-Allow-Origin', '*');
     headers = headers.append('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    console.log('url ->' + url);
 
     return this.http.get(url, { headers, params: httpParams })
       .pipe(

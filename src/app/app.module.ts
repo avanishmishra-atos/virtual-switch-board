@@ -9,6 +9,8 @@ import { SimpleNotificationsModule, NotificationsService } from 'angular2-notifi
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 import { WindowRef } from './window.ref';
 
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DisplayNotificationService } from './display.notification';
 import { LoadingComponent } from './loading/loading.component';
@@ -17,6 +19,8 @@ import { SwitchService } from './switch.service';
 @NgModule({
   declarations: [
     AppComponent,
+    AboutComponent,
+    ContactComponent,
     DashboardComponent,
     LoadingComponent
   ],

@@ -14,6 +14,9 @@ export class DashboardComponent implements OnInit {
   // Get current Year;
   currentdate = new Date().getFullYear();
 
+    // Boolean flag to control display of wait icon.
+    loading = false;
+
   constructor(private switchService: SwitchService,
     private displayNotificationService: DisplayNotificationService) { }
 
@@ -22,6 +25,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getSwitches(): void {
+    this.loading = true;
     this.switchService.getSwitchesStatus()
       .subscribe(switches => {
         this.switches = switches;
@@ -35,6 +39,7 @@ export class DashboardComponent implements OnInit {
           }
           s.name = s.name.split('Off')[1].toUpperCase();
         });
+        this.loading = false;
       });
   }
 
