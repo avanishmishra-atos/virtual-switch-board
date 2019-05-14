@@ -16,7 +16,7 @@ runtime: python27
 api_version: 1
 threadsafe: true
 skip_files:
-- ^(?!dist)  # Skip any files not in the dist folder
+- ^(?!dist/virtual-switch-board)  # Skip any files not in the dist folder
 
 handlers:
 # Routing for bundles to serve directly
