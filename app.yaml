@@ -15,52 +15,38 @@
 runtime: python27
 api_version: 1
 threadsafe: true
+skip_files:
+- ^(?!dist/virtual-switch-board)  # Skip any files not in the dist folder
+
 handlers:
-- url: /(.*\.css)
-  mime_type: text/css
+# Routing for bundles to serve directly
+- url: /((?:inline|main|polyfills|styles|vendor)\.[a-z0-9]+\.bundle\.js)
+  secure: always
+  redirect_http_response_code: 301
   static_files: dist/virtual-switch-board/\1
-  upload: dist/virtual-switch-board/(.*\.css)
+  upload: dist/virtual-switch-board/.*
 
-- url: /(.*\.html)
-  mime_type: text/html
+# Routing for a prod styles.bundle.css to serve directly
+- url: /(styles\.[a-z0-9]+\.bundle\.css)
+  secure: always
+  redirect_http_response_code: 301
   static_files: dist/virtual-switch-board/\1
-  upload: dist/virtual-switch-board/(.*\.html)
+  upload: dist/virtual-switch-board/.*
 
-- url: /(.*\.js)
-  mime_type: text/javascript
+# Routing for typedoc, assets and favicon.ico to serve directly
+- url: /((?:assets|docs)/.*|favicon\.ico)
+  secure: always
+  redirect_http_response_code: 301
   static_files: dist/virtual-switch-board/\1
-  upload: dist/virtual-switch-board/(.*\.js)
+  upload: dist/virtual-switch-board/.*
 
-- url: /(.*\.txt)
-  mime_type: text/plain
-  static_files: dist/virtual-switch-board/\1
-  upload: dist/virtual-switch-board/(.*\.txt)
-
-- url: /(.*\.xml)
-  mime_type: application/xml
-  static_files: dist/virtual-switch-board/\1
-  upload: dist/virtual-switch-board/(.*\.xml)
-
-# image files
-- url: /(.*\.(bmp|gif|ico|jpeg|jpg|png))
-  static_files: dist/virtual-switch-board/\1
-  upload: dist/virtual-switch-board/(.*\.(bmp|gif|ico|jpeg|jpg|png))
-
-# index files
-- url: /(.+)/
-  static_files: dist/virtual-switch-board/\1/index.html
-  upload: dist/virtual-switch-board/(.+)/index.html
-
-# redirect to 'url + /index.html' url.
-- url: /(.+)
-  static_files: dist/virtual-switch-board/redirector.html
-  upload: dist/virtual-switch-board/redirector.html
-
-# site root
+# Any other requests are routed to index.html for angular to handle so we don't need hash URLs
 - url: /.*
+  secure: always
+  redirect_http_response_code: 301
   static_files: dist/virtual-switch-board/index.html
-  upload: dist/virtual-switch-board/index.html
-
-- url: /virtual-switch/.*
-  static_dir: dist/virtual-switch-board  
+  upload: dist/virtual-switch-board/index\.html
+  http_headers:
+    Strict-Transport-Security: max-age=31536000; includeSubDomains
+    X-Frame-Options: DENY
 # [END runtime]
