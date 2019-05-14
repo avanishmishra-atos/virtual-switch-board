@@ -17,3 +17,12 @@
     padding: 2px 16px;
     align-self: center;
   }
+
+  @media (max-width: 600px) {
+    .card {
+      width: 80%;
+      margin-left: 10%;
+      margin-top: 8%;
+      text-align: center;
+    }
+  }

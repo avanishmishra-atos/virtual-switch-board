@@ -100,7 +100,6 @@ h4 {
   color: white;
 }
 
-
 @media (max-width: 600px) {
   .header {
     overflow: hidden;
@@ -116,6 +115,7 @@ h4 {
   }
   
   .header h1.title {
+    float: none;
     font-size: 32px;
     font-weight: bold;
     padding-left: 20px;
@@ -125,8 +125,7 @@ h4 {
 
   .header a {
     float: none;
-    text-align: left;
-    padding: 20px;
+    text-align: center;
     font-size: 18px; 
     line-height: 25px;
     border-radius: 4px;
@@ -134,6 +133,7 @@ h4 {
   
   .header-right {
     float: none;
+    text-align: center;
   }
 }
 
