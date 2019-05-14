@@ -16,9 +16,9 @@ runtime: python27
 api_version: 1
 threadsafe: true
 handlers:
-- url: /.*
-  static_files: dist/virtual-switch-board/index.html
-  upload: dist/virtual-switch-board/index.html
+- url: /(.*\.(gif|png|jpg|html))$
+  static_files: dist/virtual-switch-board/\1
+  upload: dist/virtual-switch-board/.*\.(gif|png|jpg|html)$
 - url: /.*
   static_dir: dist/virtual-switch-board
 # [END runtime]
