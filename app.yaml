@@ -16,10 +16,48 @@ runtime: python27
 api_version: 1
 threadsafe: true
 handlers:
-- url: /.*
+- url: /(.*\.css)
+  mime_type: text/css
+  static_files: dist/virtual-switch-board/\1
+  upload: dist/virtual-switch-board/(.*\.css)
+
+- url: /(.*\.html)
+  mime_type: text/html
+  static_files: dist/virtual-switch-board/\1
+  upload: dist/virtual-switch-board/(.*\.html)
+
+- url: /(.*\.js)
+  mime_type: text/javascript
+  static_files: dist/virtual-switch-board/\1
+  upload: dist/virtual-switch-board/(.*\.js)
+
+- url: /(.*\.txt)
+  mime_type: text/plain
+  static_files: dist/virtual-switch-board/\1
+  upload: dist/virtual-switch-board/(.*\.txt)
+
+- url: /(.*\.xml)
+  mime_type: application/xml
+  static_files: dist/virtual-switch-board/\1
+  upload: dist/virtual-switch-board/(.*\.xml)
+
+# image files
+- url: /(.*\.(bmp|gif|ico|jpeg|jpg|png))
+  static_files: dist/virtual-switch-board/\1
+  upload: dist/virtual-switch-board/(.*\.(bmp|gif|ico|jpeg|jpg|png))
+
+# index files
+- url: /(.+)/
+  static_files: dist/virtual-switch-board/\1/index.html
+  upload: dist/virtual-switch-board/(.+)/index.html
+
+# redirect to 'url + /index.html' url.
+- url: /(.+)
+  static_files: dist/virtual-switch-board/redirector.html
+  upload: dist/virtual-switch-board/redirector.html
+
+# site root
+- url: /
   static_files: dist/virtual-switch-board/index.html
   upload: dist/virtual-switch-board/index.html
-
-- url: /.*
-  static_dir: dist/virtual-switch-board
 # [END runtime]
