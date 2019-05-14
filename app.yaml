@@ -13,8 +13,7 @@
 #
 # [START runtime]
 runtime: nodejs10
-api_version: 1
-threadsafe: true
+
 handlers:
 - url: /
   static_files: dist/index.html
