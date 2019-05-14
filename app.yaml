@@ -57,7 +57,10 @@ handlers:
   upload: dist/virtual-switch-board/redirector.html
 
 # site root
-- url: /
+- url: /.*
   static_files: dist/virtual-switch-board/index.html
   upload: dist/virtual-switch-board/index.html
+  
+- url: /.*
+  static_dir: dist/virtual-switch-board  
 # [END runtime]
