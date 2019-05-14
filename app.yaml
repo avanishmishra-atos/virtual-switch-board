@@ -18,6 +18,14 @@ instance_class: F2
 
 handlers:
 - url: /.*
+  static_files: dist/virtual-switch-board/index.html
+  upload: dist/virtual-switch-board/index.html
+
+- url: /(.*\.(gif|png|jpg))$
+  static_files: static/\1
+  upload: dist/virtual-switch-board/.*\.(gif|png|jpg)$
+
+- url: /.*
   static_dir: dist/virtual-switch-board
 
 - url: /.*
