@@ -16,9 +16,9 @@ runtime: python27
 api_version: 1
 threadsafe: true
 handlers:
-- url: /
+- url: /dashboard
   static_files: dist/index.html
   upload: dist/index.html
-- url: /
+- url: /dashboard
   static_dir: dist
 # [END runtime]
