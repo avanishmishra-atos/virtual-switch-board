@@ -6,16 +6,16 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: '',
-    redirectTo: '/dashboard',
+    redirectTo: '/virtual-switch/dashboard',
     pathMatch: 'full'
   },
-  { path: 'about',
+  { path: 'virtual-switch/about',
     component: AboutComponent
   },
-  { path: 'contact',
+  { path: 'virtual-switch/contact',
     component: ContactComponent
   },
-  { path: 'dashboard',
+  { path: 'virtual-switch/dashboard',
     component: DashboardComponent
   }
 ];
