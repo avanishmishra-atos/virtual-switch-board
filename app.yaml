@@ -17,9 +17,13 @@ api_version: 1
 threadsafe: true
 handlers:
 - url: /.*
+  static_dir: dist/virtual-switch-board
+
+- url: /.*
   static_files: dist/virtual-switch-board/index.html
   upload: dist/virtual-switch-board/index.html
-  
-- url: /.*
-  static_dir: dist/virtual-switch-board
+
+- url: /(.*\.(gif|png|jpg))$
+  static_files: dist/virtual-switch-board/assets/images/\1
+  upload:  dist/virtual-switch-board/assets/images/.*\.(gif|png|jpg)$  
 # [END runtime]
