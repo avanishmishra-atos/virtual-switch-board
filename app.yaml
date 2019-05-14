@@ -12,24 +12,14 @@
 # limitations under the License.
 #
 # [START runtime]
-runtime: nodejs10 # For Node.js 8, use runtime: nodejs8
-
-instance_class: F2
-
+runtime: python27
+api_version: 1
+threadsafe: true
 handlers:
 - url: /.*
   static_files: dist/virtual-switch-board/index.html
   upload: dist/virtual-switch-board/index.html
-
-- url: /(.*\.(gif|png|jpg))$
-  static_files: static/\1
-  upload: dist/virtual-switch-board/.*\.(gif|png|jpg)$
-
+  
 - url: /.*
   static_dir: dist/virtual-switch-board
-
-- url: /.*
-  secure: always
-  redirect_http_response_code: 301
-  script: auto
 # [END runtime]
