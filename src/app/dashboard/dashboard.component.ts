@@ -68,7 +68,7 @@ export class DashboardComponent implements OnInit {
       }
     });
 
-    this.displayNotificationService.showToastNotification(s.name + ' TURNED ' + (s.isOn ? 'ON' : 'OFF') + ' !!!', 'success');
+    this.displayNotificationService.showToastNotification(s.name + ' TURNED ' + (s.isOn ? 'OFF' : 'ON') + ' !!!', 'success');
   }
 
   addSwitch(): void {
